@@ -1,16 +1,19 @@
 import React from 'react';
+import store from './store';
+import { Provider } from 'react-redux';
+
 import './App.css';
-
 import theme from './theme';
-
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import Cards from './components/Cards';
+import CardsContainer from './containers/CardsContainer';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Cards />
+      <Provider store={store}>
+        <CardsContainer />
+      </Provider>
     </ThemeProvider>
   );
 }

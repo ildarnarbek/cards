@@ -10,19 +10,18 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './styles';
 
 const Post = (props) => {
-  const { favorite } = props;
+  const { favorite, title, text } = props;
 
   const classes = useStyles();
+
+  const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
     <Paper className={classes.paper} elevation={3}>
       <Grid container>
         <Grid item direction="column" container xs={10}>
-          <Typography variant="h4">Title</Typography>
-          <Typography variant="body1">
-            quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas
-            totam\nnostrum rerum est autem sunt rem eveniet architecto
-          </Typography>
+          <Typography variant="h4">{capitalizeFirstLetter(title)}</Typography>
+          <Typography variant="body1">{capitalizeFirstLetter(text)}</Typography>
         </Grid>
         <Grid item direction="column" container xs={2} alignContent="center">
           <IconButton className={classes.iconBUtton}>
