@@ -8,11 +8,18 @@ import StarIcon from '@material-ui/icons/Star';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
+import { useActions } from '../../../../../slices/PostSlice';
 
 const Post = (props) => {
-  const { favorite, title, text } = props;
+  const { favorite, title, text, id } = props;
+
+  const { toggleFavorite } = useActions();
 
   const classes = useStyles();
+
+  const onStarClick = (postId) => (event) => {
+    toggleFavorite(postId);
+  };
 
   const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -24,7 +31,7 @@ const Post = (props) => {
           <Typography variant="body1">{capitalizeFirstLetter(text)}</Typography>
         </Grid>
         <Grid item direction="column" container xs={2} alignContent="center">
-          <IconButton className={classes.iconBUtton}>
+          <IconButton className={classes.iconBUtton} onClick={onStarClick(id)}>
             {favorite ? (
               <StarIcon className={classes.starFilled} fontSize="large" />
             ) : (

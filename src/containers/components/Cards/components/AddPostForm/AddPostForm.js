@@ -23,9 +23,6 @@ const AddPostForm = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
-  console.log(title);
-  console.log(body);
-
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onTextChanged = (e) => setBody(e.target.value);
 

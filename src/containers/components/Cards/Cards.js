@@ -22,7 +22,9 @@ const Cards = () => {
   const favoritePosts = postSlice.filter((post) => post.isFavorite === true);
   const filtredPosts = postSlice.filter((post) => post.isFavorite === false);
 
-  useEffect(getPosts, []);
+  useEffect(() => {
+    getPosts();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (isEmpty(postSlice.data) && !isNil(loadingError)) {
     return (
@@ -37,7 +39,7 @@ const Cards = () => {
       <Grid container justify="space-around">
         <AllPostsColumn posts={filtredPosts} />
         <Grid item direction="column" container xs={4}>
-          <Grid item>{isNil(favoritePosts) && <FavoritePostsColumn posts={favoritePosts} />}</Grid>
+          <Grid item>{!isEmpty(favoritePosts) && <FavoritePostsColumn posts={favoritePosts} />}</Grid>
           <Grid item>
             <AddPostForm />
           </Grid>

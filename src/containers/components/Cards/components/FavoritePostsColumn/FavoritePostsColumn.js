@@ -13,7 +13,7 @@ const FavoritePostsColumn = (props) => {
       <Typography variant="h3">Favorite</Typography>
       <Box>
         {posts.map((post) => (
-          <Post key={post.id} title={post.title} text={post.body} favorite />
+          <Post key={post.id} id={post.id} title={post.title} text={post.body} favorite />
         ))}
       </Box>
     </Box>

@@ -14,7 +14,7 @@ const AllPostsColumn = (props) => {
       <Typography variant="h3">All</Typography>
       <Box>
         {posts.map((post) => (
-          <Post key={post.id} title={post.title} text={post.body} />
+          <Post key={post.id} id={post.id} title={post.title} text={post.body} />
         ))}
       </Box>
     </Grid>

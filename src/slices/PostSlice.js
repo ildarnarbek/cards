@@ -13,9 +13,6 @@ const slice = createSlice({
     data: [],
     processing: true,
     processingError: null,
-    ui: {
-      visibleTheories: false,
-    },
   },
   reducers: {
     start(state) {
@@ -33,12 +30,18 @@ const slice = createSlice({
     postAdded(state, { payload }) {
       state.data.push(payload);
     },
+    toggledFavorite(state, { payload }) {
+      const existingPost = state.data.find((post) => post.id === payload);
+      if (existingPost) {
+        existingPost.isFavorite = !existingPost.isFavorite;
+      }
+    },
   },
 });
 
 /* eslint no-param-reassign: 1 */
 
-const { start, fail, loadSuccess, postAdded } = slice.actions;
+const { start, fail, loadSuccess, postAdded, toggledFavorite } = slice.actions;
 
 export const useActions = () => {
   const dispatch = useDispatch();
@@ -61,6 +64,9 @@ export const useActions = () => {
     },
     addPost: (payload) => {
       dispatch(postAdded(payload));
+    },
+    toggleFavorite: (payload) => {
+      dispatch(toggledFavorite(payload));
     },
   };
 };
