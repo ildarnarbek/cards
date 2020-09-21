@@ -1,9 +1,9 @@
-import CardsContainer from './CardsContainer';
+import PostsContainer from './PostsContainer';
 
-import PostSlice from '../slices/PostSlice';
+import PostSlice from '../components/Posts/PostSlice';
 
-export default CardsContainer;
+export default PostsContainer;
 
-export const CardsContainerReducers = {
+export const PostsContainerReducers = {
   PostSlice,
 };

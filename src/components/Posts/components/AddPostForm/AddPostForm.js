@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { isEmpty } from 'ramda';
 import { useSelector } from 'react-redux';
+import { isEmpty } from 'ramda';
 
 import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
-import { useActions } from '../../../../../slices/PostSlice';
+import { useActions } from '../../PostSlice';
 
 import useStyles from './styles';
 

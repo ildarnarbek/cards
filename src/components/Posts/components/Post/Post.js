@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,7 +9,7 @@ import StarIcon from '@material-ui/icons/Star';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
-import { useActions } from '../../../../../slices/PostSlice';
+import { useActions } from '../../PostSlice';
 
 const Post = (props) => {
   const { favorite, title, text, id } = props;
@@ -42,6 +43,20 @@ const Post = (props) => {
       </Grid>
     </Paper>
   );
+};
+
+Post.propTypes = {
+  favorite: PropTypes.bool,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  id: PropTypes.number,
+};
+
+Post.defaultProps = {
+  favorite: false,
+  title: null,
+  text: null,
+  id: null,
 };
 
 export default Post;

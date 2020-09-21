@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import Post from '../Post';
 
-const AllPostsColumn = (props) => {
+const AllPosts = (props) => {
   const { posts } = props;
 
   return (
@@ -20,5 +21,12 @@ const AllPostsColumn = (props) => {
     </Grid>
   );
 };
+AllPosts.propTypes = {
+  posts: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.number, title: PropTypes.string, body: PropTypes.string })),
+};
 
-export default AllPostsColumn;
+AllPosts.defaultProps = {
+  posts: [],
+};
+
+export default AllPosts;

@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import { isEmpty, isNil } from 'ramda';
 import { useSelector } from 'react-redux';
+import { isEmpty, isNil } from 'ramda';
 
+import Alert from '@material-ui/lab/Alert';
+import Backdrop from '@material-ui/core/Backdrop';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Backdrop from '@material-ui/core/Backdrop';
-import Alert from '@material-ui/lab/Alert';
 
 import AddPostForm from './components/AddPostForm';
-import AllPostsColumn from './components/AllPostsColumn';
-import FavoritePostsColumn from './components/FavoritePostsColumn';
+import AllPosts from './components/AllPosts';
+import FavoritePosts from './components/FavoritePosts';
 
-import { useActions } from '../../../slices/PostSlice';
+import { useActions } from './PostSlice';
 
-const Cards = () => {
+const Posts = () => {
   const postSlice = useSelector((state) => state.PostSlice.data);
   const loadingError = useSelector((state) => state.PostSlice.processingError);
 
@@ -37,9 +37,9 @@ const Cards = () => {
   return (
     <Container>
       <Grid container justify="space-around">
-        <AllPostsColumn posts={filtredPosts} />
+        <AllPosts posts={filtredPosts} />
         <Grid item direction="column" container xs={4}>
-          <Grid item>{!isEmpty(favoritePosts) && <FavoritePostsColumn posts={favoritePosts} />}</Grid>
+          <Grid item>{!isEmpty(favoritePosts) && <FavoritePosts posts={favoritePosts} />}</Grid>
           <Grid item>
             <AddPostForm />
           </Grid>
@@ -49,4 +49,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default Posts;

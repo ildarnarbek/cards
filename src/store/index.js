@@ -1,10 +1,10 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
-import { CardsContainerReducers } from '../containers/index';
+import { PostsContainerReducers } from '../containers/index';
 
 const store = configureStore({
   reducer: combineReducers({
-    ...CardsContainerReducers,
+    ...PostsContainerReducers,
   }),
 });
 

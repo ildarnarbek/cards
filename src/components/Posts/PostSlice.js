@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
-import PostRepository from '../repositories/PostRepository';
+import PostRepository from '../../repositories/PostRepository';
 
 const sliceName = 'PostSlice';
 

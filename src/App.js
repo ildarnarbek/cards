@@ -6,13 +6,13 @@ import './App.css';
 import theme from './theme';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import CardsContainer from './containers/CardsContainer';
+import PostsContainer from './containers/PostsContainer';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <CardsContainer />
+        <PostsContainer />
       </Provider>
     </ThemeProvider>
   );
